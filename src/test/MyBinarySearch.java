@@ -16,6 +16,7 @@ public class MyBinarySearch {
         int[] d = {1, 3, 5, 6, 2, 4, 0, 8, 7, 9};
         xuanZe2(c);
 
+
         for(int i=1;i<7;i++){
             System.out.print(diGui(i)+"\t");
         }

@@ -10,29 +10,26 @@ public class QuickSortDemo {
     }
 
     static void quickSort(int[] arr, int left, int right) {
-        int left0 = left;
-        int right0 = right;
-        //计算基准数；
-        int baseNum = arr[0];
+      if(left>right)
+          return;
+      int l=left;
+      int r=right;
+      int base=arr[left];
+      while(left!=right){
+          if(arr[right]>=base&&right>left)
+              right--;
+          if(arr[left]<=base&&right>left)
+              left++;
 
-        while (left != right) {
-            //从右开始找比基准数小的
-            while (arr[right] >= baseNum && right > left) {
-                right--;
-            }
-            //从左开始找比基准数大的
-            while(arr[left]<=baseNum&&right>left){
-                left++;
-            }
+          int temp=arr[left];
+          arr[left]=arr[right];
+          arr[right]=temp;
+      }
+      arr[l]=arr[left];
+      arr[left]=base;
 
-            //交换
-            int temp=arr[left];
-            arr[left]=arr[right];
-            arr[right]=temp;
-        }
-        //基准数归位
-        int temp=arr[left];
-        arr[left]=arr[0];
-        arr[0]=temp;
+      quickSort(arr,l,left-1);
+      quickSort(arr,left+1,r);
+
     }
 }
